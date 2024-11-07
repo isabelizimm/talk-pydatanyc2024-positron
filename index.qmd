@@ -1,0 +1,439 @@
+---
+title: "End-to-end data science with the Positron IDE"
+author: "Isabel Zimmerman ~ Posit, PBC"
+date: "2024-11-07"
+format:
+  revealjs:
+    transition: fade
+    slide-number: true
+    center: true
+    logo: images/posit-logo.png
+    footer: isabelizimm.me/talk-pydatanyc2024-positron
+    theme: [default, custom.scss]
+---
+
+## hello! 🍎
+
+. . . 
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<img src="https://github.com/isabelizimm.png" style="border-radius: 50%;" width="300px"/>
+
+:::
+::: {.column width="50%"}
+
+[{{< fa brands github >}} \@isabelizimm](https://github.com/isabelizimm)
+
+[{{< fa brands bluesky >}} \@isabelizimm](https://fosstodon.org/@isabelizimm)
+
+[{{< fa brands linkedin >}} \/in\/isabel-zimmerman](https://www.linkedin.com/in/isabel-zimmerman/)
+
+[{{< fa link >}} isabelizimm.me](https://www.isabelizimm.me)
+
+:::
+::::
+
+# {background-image="images/intro-1.png"}
+
+::: notes
+Hi I’m Isabel, I first learned about RStudio in a class called Intro to Data Science, where my professor Dr. Sanchez taught me about this cycle of tidying and transforming data…
+
+that first day in class was magical.
+
+I could explore data quickly through the variables pane and data viewer. If I was confused about a function, I would just put a question mark next to it and RStudio would pull up relevant documentation. I made my first plot that wasn’t in excel.
+
+RStudio made data science feel so accessible, and so joyful.
+
+I went on to do more schooling, more learning, more classes, and RStudio was a tool that grew with me.
+
+:::
+
+# {background-image="images/intro-2.png"}
+
+::: notes
+Finished my degrees, took a job doing data sciencey tasks that used python, and i realized…hey!!!! This data science life cycle doesn’t change, even if you change languages. Something that did change for me, though, were the tools I was using. Without an IDE that supported code-first data science the way RStudio did… some tasks really felt like I was stubbing my toe on the corner of a table.
+:::
+
+# {background-image="images/intro-3.png"}
+
+::: notes
+It was painful, and annoying, but overall, doesn’t really impact your day…until your day involves you stubbing your toe over and over for 8 hours. I really wasn’t able to find an IDE that felt built to not only minimize pain but also maximize my data science experience
+
+A few years later, I’ve now hobbled my bruised feet over to developing for Python users on the Positron team, and I hope we can convince you that we have built a tool that saves you a bit of pain, and maybe gives you a bit of joy.
+
+:::
+
+# {background-image="images/intro-4.png"}
+
+::: notes
+So, heres the question. What is Positron and how does it support data scientists? 
+
+:::
+
+# `hello, Positron`
+
+## The origin story
+
+::: incremental
+- Multi-language IDE for data science
+- Made by ![](images/posit-logo.png){width=12%}
+:::
+
+::: notes
+- Positron is a fork of the open source VSCode, customized for data science
+-   similar strategy to other IDEs such as Cursor
+-   able to use Open VSX extensions
+-   enables multilingual data science
+-   perhaps mmore importantly, strong IDE base helps us be able to focus on something specific
+
+- difficult to find an IDE that is both powerful and easy to use for data science
+- it is a very iterative process that involves quick experimentation, you want something that will support this
+
+- Posit was the right choice to make it since we have decades of experience with data science IDEs 
+
+… cannot contribute custom UI to the workbench surface
+… are ephemeral and can be restarted at any time
+… stop running when the browser is closed
+… don’t make sense as a foundation for other extensions
+
+:::
+
+##
+
+![](images/positron-welcome.png)
+
+::: notes
+break it down...
+:::
+
+##
+![](images/positron-1.png)
+
+::: notes
+where/what are you working on?
+
+portal to swapping in and out of different activated environments
+:::
+
+##
+![](images/positron-2.png)
+
+::: notes
+where your source code goes
+
+:::
+
+##
+
+![](images/positron-3.png)
+
+::: notes
+sandbox for code
+
+interactive console
+:::
+
+##
+
+![](images/positron-4.png)
+
+::: notes
+context about your code
+
+telling you more about the variables you have created, displaying plots you have designed, rendering documents you have written, and more
+
+
+code first data science, but a bit of UI can still help! 
+:::
+
+## Steps of data science
+
+![](images/base.png)
+
+::: footer
+[r4ds.had.co.nz/explore-intro.html](https://r4ds.had.co.nz/explore-intro.html)
+:::
+
+::: notes
+step through each of the steps of data science and discuss how Positron helps
+
+but before you can even import data, there are other considerations for a Python project  
+:::
+
+## Steps of data science (in Python)
+
+![](images/python_environment_2x.png){fig-align="center"}
+
+::: footer
+[https://xkcd.com/1987](https://xkcd.com/1987/)
+:::
+
+::: notes
+just as many ways to create virtual environments as there are to download Python. 
+
+its confusing, and this isn't even taking into account the fact that you can have multiple environments based off of each of the ways you've downloaded Python
+
+:::
+
+#
+
+![](images/interpreter-selector.png){fig-align="center" width=30%}
+
+::: notes
+
+- conda/mamba/pyenv/venv/virtualenv 
+
+can be hard to wrangle all the ways to get started. UI to find it and select it in IDE -- console, terminal, etc
+:::
+
+## interactive console
+
+![](images/console.gif){fig-align="center"}
+
+::: notes
+with a virtual environment activated, you can run code in the live ipython console
+
+good place to test out code quickly and see results, sort of like a playground
+
+
+- use command/control enter to run code
+- fully featured and connected console to other pieces of the IDE
+- autocomplete, syntax highlighting, etc
+:::
+
+# import
+
+## connections pane
+
+![](images/connections.png){fig-align="center"}
+
+::: notes
+if you've connected to a database in your Python session, you can see the tables in the database
+:::
+
+## connection pane
+
+![](images/connections.gif){fig-align="center"}
+
+::: notes
+can even execute the code to disconnect and reconnect to that database
+
+there is currently support for SQLite, but we would love to hear what other DBs people would like to see supported
+
+and, when you click on the EYE you can see the data in the table...which leads us to the next step of our data science lifecycle
+:::
+
+# tidy
+
+::: notes
+with a connection established, you can now start to work with data!
+
+here-- we are looking to answer questions like
+
+- what are the columns of my data?
+- what are some basic summary statistics?
+- can you quickly open this file?
+:::
+
+## data explorer
+
+![](images/data-explorer.png)
+
+::: notes
+debug your data
+
+supports polars and pandas series/dataframes, even up to tens of millions of rows and millions of columns.
+
+you can see for each column we compute summary statistics and sparklines
+:::
+
+## data explorer
+
+![](images/parquet-de.gif)
+
+::: notes
+also able to open csv or parquet files. these will show columns, although you may realize there are no sparklines or no summary statistics as there is no language to compute them-- this is all using DuckDB and WebAssembly to do the heavy lifting of getting your data into a format that can be explored
+
+this feature is brand new in this month's release-- the data explorer is somewhere the Positron team is really excited about, and we are working on making it even better
+:::
+
+
+
+# transform, visualize, model
+
+# ~~transform, visualize, model~~ understand
+
+::: notes
+here is where you might be delving deep into that experimental part of your data science lifecycle, with quesions like
+
+- oh wow, what was that experimental i created variable again?
+- what are the parameters of that model again?
+- how can i quickly look at all these plots i have created?
+
+:::
+
+## variables pane
+
+![](images/variables-pane-1.png){fig-align="center"}
+
+::: notes
+name of your variable
+:::
+
+## variables pane
+
+![](images/variables-pane-2.png){fig-align="center"}
+
+::: notes
+the value of your variable, or some sort of summary of the variable
+:::
+
+## variables pane
+
+![](images/variables-pane-3.png){fig-align="center"}
+
+::: notes
+the type of the variable. sometimes this also includes an icon such as a table or little cylinder for a database
+
+its worth noting here too that the variables pane is attached to not only just the console, but if you are using jupyter notebooks, the variables pane will have another tab for each notebook you have open
+
+which is super handy for when you are working with multiple notebooks. however, knowing just the variable is not always enough-- sometimes you need to know a bit more about the attributes or methods of the object. this is where the help pane comes in--
+:::
+
+## help pane
+
+![](images/get-help.png){fig-align="center"}
+
+::: notes
+easy to find help for any function, package, or topic
+:::
+
+## help pane
+
+![](images/help-1.png){fig-align="center"}
+
+::: notes
+shows version of the package, renders docstrings
+
+recently, as i have been working on other python packages i maintain, this is a helpful pane for me to see the docstrings for the functions i am writing-- i find it super helpful to see everything rendered and see how it is to navigate through the documentation in this sort of lightweight way
+:::
+
+## help pane
+
+![](images/help-2.png){fig-align="center"}
+
+::: notes
+supports interlinks between help topics
+
+color-highlighting and rendering examples
+
+- numpy/sphinx style
+- google style
+- epytext style
+:::
+
+## plots pane
+
+![](images/plots-pane.png){fig-align="center"}
+
+::: notes
+dedicated space for data visualization
+:::
+
+## plots pane
+
+![](images/plots-1.gif){fig-align="center"}
+
+::: notes
+dynamically create and update plots as you work and run code in the console
+:::
+
+## plots pane
+
+![](images/plots.gif){fig-align="center"}
+
+::: notes
+really comes in handy when you have lots of plots-- since not every plot is a winner the first time. you can see your iterations, save what you like. we even have a button to save to your clipboard, since we know how often these end up in word documents or other similar places :) 
+:::
+
+# communicate
+
+## viewer pane
+
+![](images/streamlit.png){fig-align="center"}
+
+::: notes
+viewer pane is a place to view the locally running content. fully interactive, you can view localhost urls or open HTML files right in the IDE
+
+here we can see a simple streamlit app
+:::
+
+## viewer pane
+
+![](images/streamlit-button.png){fig-align="center"}
+
+::: notes
+button to automatically run your apps and open them up in the viewer
+
+- gradio
+- panel
+- streamlit
+- shiny
+- fastapi
+- flask
+:::
+
+## viewer pane
+
+![](images/slide-ception.png){fig-align="center"}
+
+::: notes
+quarto files
+
+play button to run streamlit/shiny/fastapi/flask
+:::
+
+## 
+
+![](images/positron-welcome.png){fig-align="center"}
+
+## What else?
+
+::: incremental
+- Updating Jupyter Notebook experience
+- Early stage project, but ready for real work
+:::
+
+## How can I use Positron?
+
+- Available on GitHub @ [https://github.com/posit-dev/positron](https://github.com/posit-dev/positron)
+- Documentation @ [https://positron.posit.co/](https://positron.posit.co/)
+
+. . . 
+
+::: {.r-fit-text}
+thank you! 👋
+:::
+
+::: notes
+
+able to see all the source code on GitHub, which is where we are having people download
+
+still in early stages, but ready for real work
+
+Positron is compatible with GenAI extensions:
+AWS Q and CodeWhisperer
+Google Gemini
+Codeium
+Tabnine
+Cody
+
+Local model or APIs
+Continue
+CodeGPT
+Ollama
+Extensions support:
+ Anthropic Claude, OpenAI GPT-4o, Google Gemini 1.5 Pro, Mistral Codestral, and more
+:::
