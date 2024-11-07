@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet&display=swap');
+
+/*-- scss:defaults --*/
+
+$font-family-sans-serif: 'Sniglet', sans-serif;
+
+/*-- scss:rules --*/
+
+.slide-background-content{
+  background-image: url('./images/bkgd.png');
+  background-size: 100% 100%;
+}
